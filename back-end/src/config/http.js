@@ -15,7 +15,6 @@ const getInstance = () => {
     config['timeout'] = env.TIMEOUT || 600000;
   }
 
-  console.log(config)
   return axios.create(config);
 };
 

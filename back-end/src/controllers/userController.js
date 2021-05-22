@@ -1,5 +1,6 @@
 import userService from "../service/userService"
 import createError from "http-errors";
+import { authorization } from "../middlewares/security"
 
 const create = async( req,res,next ) => {
     try {
@@ -37,9 +38,18 @@ const me = async( req,res,next ) => {
     }
 }
 
+const likeCharComic = async( req,res,next ) => {
+    try {
+        await userService.likeCharComic(req.body, req.user.sub)
+        return res.status(204).json()
+    } catch(error) {
+        next(error)
+    }
+}
 
 export default {
     create,
     updateUser,
-    me
+    me,
+    likeCharComic
 }

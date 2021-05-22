@@ -1,5 +1,5 @@
 import repository from "../repository/userRepository";
-import { sign, verify } from "jsonwebtoken";
+import { sign, verify, decode } from "jsonwebtoken";
 import { call, curry, isNil } from "ramda";
 import createError from "http-errors";
 
@@ -65,8 +65,4 @@ const verifyToken = async (authorization) => {
   });
 };
 
-const getProfile = (_, context) => {
-  return { name: context.user.name };
-};
-
-export default { generateToken, login, validation, verifyToken, getProfile };
+export default { generateToken, login, validation, verifyToken };

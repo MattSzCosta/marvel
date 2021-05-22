@@ -34,7 +34,10 @@ router.post('/login',(req, res, next) => (
   ),
   authController.login);
 
-// router.post('/like/charOrComic', verifyHandle, userController.likeCharComic);
+router.post('/user/like', security,(req, res, next) => (
+  validator.validate(userValidation.userLikeValidator, req.body, res, next)
+  ),
+   userController.likeCharComic);
 // router.get('/like/byUser', security, userController.likeByUser);
 
 // Char

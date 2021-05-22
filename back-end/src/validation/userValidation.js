@@ -10,6 +10,14 @@ const userCreateValidator = yup.object().shape({
     password: yup.string().required()
   });
 
+const userLikeValidator = yup.object().shape({
+  type: yup.string().required(),
+  apiId: yup.string().required(),
+  name: yup.string().required(),
+  thumb: yup.string().required(),
+  });
+
 export default {
-    userCreateValidator
+    userCreateValidator,
+    userLikeValidator
 }

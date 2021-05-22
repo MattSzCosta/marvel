@@ -40,10 +40,16 @@ const authenticate = async({ email, password}) => {
     });
 }
 
+
+const addComic = ({ comicId, userId }) => {
+    return User.addComic(userId, comicId)
+}
+
 export default {
     createUser,
     updateUser,
     countUser,
     profile,
-    authenticate
+    authenticate,
+    addComic
 }
