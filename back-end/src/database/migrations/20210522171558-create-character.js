@@ -1,4 +1,4 @@
-const { BLOB, INTEGER, STRING } = require("sequelize");
+const { TEXT, INTEGER, STRING } = require("sequelize");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -14,11 +14,11 @@ module.exports = {
         unique: true
       },
       thumb: {
-        type: BLOB("medium"),
+        type: TEXT,
         allowNull: false,
       },
       name: {
-        type: STRING(100),
+        type: TEXT,
         allowNull: false,
       },
     });
