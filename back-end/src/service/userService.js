@@ -6,7 +6,6 @@ const createUser = async(user) => {
     return executeTransaction((t) => 
         repositoy.createUser(user, t)
             .then((res) => {
-                console.log("service", res)
                 return res
             })
             .catch((err) => {
@@ -19,7 +18,6 @@ const updateUser = async(user) => {
     return executeTransaction((t) => 
         repositoy.updateUser(user, t)
             .then((res) => {
-                console.log("service", res)
                 return res
             })
             .catch((err) => {

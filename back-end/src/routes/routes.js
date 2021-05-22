@@ -13,13 +13,13 @@ import { security } from "../middlewares/security";
 
 const router = Router();
 // User routes
-router.post('/user/create', async (req, res, next) => {
+router.post('/user/me', async (req, res, next) => {
     await validator.validate(userValidation.userCreateValidator, req.body, res, next);
   },
   userController.create
 );
 
-router.put('/user/update', 
+router.put('/user/me', 
     security,
     (req, res, next) => (
     validator.validate(userValidation.userCreateValidator, req.body, res, next)

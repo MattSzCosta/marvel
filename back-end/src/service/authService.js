@@ -25,7 +25,6 @@ const login = async ({email, password}) => {
 };
 
 const getCredential = curry((token) => {
-    console.log(token)
     return {
       access_token: token,
       token_type: "Bearer",

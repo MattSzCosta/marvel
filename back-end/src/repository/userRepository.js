@@ -4,11 +4,10 @@ import createError from "http-errors";
 const createUser = async (user, t) => {
     return User.create(user, { transaction: t })
         .then((res) => {
-            console.log("repository", res)
             return res;
         })
         .catch((err) => {
-            throw createError(400, err);
+            throw createError(500, err);
     });
 };
 
@@ -18,11 +17,10 @@ const updateUser = async (user, t) => {
         {where: { id }}
         , { transaction: t })
         .then((res) => {
-            console.log("repository", res)
             return res;
         })
         .catch((err) => {
-            throw createError(400, err);
+            throw createError(500, err);
     });
 };
 
@@ -38,7 +36,7 @@ const authenticate = async({ email, password}) => {
    return User.findOne({ where: {email, password}})
    .then(res => res)
    .catch((err) => {
-        throw createError(400, err);
+        throw createError(500, err);
     });
 }
 
