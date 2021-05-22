@@ -60,11 +60,7 @@ const verifyToken = async (authorization) => {
     verify(authorization, tokenSecrets || "secrets", options, (error, decoded) => {
       isNil(error)
         ? resolve(decoded)
-        : reject({
-            ...error,
-            status: 401,
-            message: "Unauthorized",
-          });
+        : call(() =>  {throw createError(401, "Unauthorized")})
     });
   });
 };

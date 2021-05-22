@@ -6,9 +6,8 @@ const handle = require("express-async-handler");
 // Controllers imports
 import userController from '../controllers/userController';
 import authController from '../controllers/authController';
-// import marvelController from './controllers/marvel-controller';
+import marvelController from '../controllers/marvelController';
 // Middleware imports
-import verifyHandle from '../middlewares/verify-token-handler';
 import { security } from "../middlewares/security";
 
 const router = Router();
@@ -36,23 +35,23 @@ router.post('/login',(req, res, next) => (
   authController.login);
 
 // router.post('/like/charOrComic', verifyHandle, userController.likeCharComic);
-// router.get('/like/byUser', verifyHandle, userController.likeByUser);
+// router.get('/like/byUser', security, userController.likeByUser);
 
-// // Char protected routes
-// router.get(
-//   '/char/index/:limit/:offset',
-//   verifyHandle,
-//   marvelController.indexChar,
-// );
+// Char
+router.get(
+  '/chars',
+  security,
+  marvelController.getAllChar,
+);
 
-// router.get('/char/index/:id', verifyHandle, marvelController.indexCharById);
+router.get('/char', security, marvelController.getCharById);
 
-// // Comics protected routes
-// router.get(
-//   '/comics/index/:limit/:offset',
-//   verifyHandle,
-//   marvelController.indexComics,
-// );
+// Comics
+router.get(
+  '/comics',
+  security,
+  marvelController.getAllComics,
+);
 
-// router.get('/comics/index/:id', verifyHandle, marvelController.indexComicsById);
+router.get('/comic', security, marvelController.getComicById);
 export default router;

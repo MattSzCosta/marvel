@@ -10,7 +10,8 @@ export const security = async (request, response, next) => {
     if(!token) {
       throw createError(401);
     }
-    request.user = await service.verifyToken(token);
+    request.user = await service.verifyToken(token)
+  
     next()
   } catch (e) {
     return next(e);
