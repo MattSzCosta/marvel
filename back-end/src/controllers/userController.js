@@ -47,9 +47,19 @@ const likeCharComic = async( req,res,next ) => {
     }
 }
 
+const content = async( req,res,next ) => {
+    try {
+        const data = await userService.content(req.user.sub)
+        return res.status(200).json(data)
+    } catch(error) {
+        next(error)
+    }
+}
+
 export default {
     create,
     updateUser,
     me,
-    likeCharComic
+    likeCharComic,
+    content
 }

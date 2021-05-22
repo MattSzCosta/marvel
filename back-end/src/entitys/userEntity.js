@@ -49,7 +49,7 @@ Comic.belongsToMany(User, {
     foreignKey: "comicId",
 });
 
-User.belongsToMany(Comic, {
+User.belongsToMany(Character, {
   through: "user_characters",
   as: "characters",
   foreignKey: "userId",

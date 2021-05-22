@@ -1,5 +1,5 @@
 import { sequelize } from "./index";
-import { INTEGER, STRING, BLOB } from "sequelize";
+import { INTEGER, STRING, TEXT } from "sequelize";
 
 const Character = sequelize.define(
   "characters",
@@ -15,11 +15,11 @@ const Character = sequelize.define(
       unique: true
     },
     thumb: {
-      type: BLOB("medium"),
+      type: TEXT,
       allowNull: false,
     },
     name: {
-      type: STRING(100),
+      type: TEXT,
       allowNull: false,
     },
   },

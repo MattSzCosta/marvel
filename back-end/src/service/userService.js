@@ -49,13 +49,13 @@ const me = async(id) => {
 }
 
 const likeChar = async(content, user, t) => {
-    const res = repositoyChar.findOne(content)
+    const res = await repositoyChar.findOne(content)
     if(res) {
-        return user.addComic(res)
+        return user.addCharacter(res)
     }
 
     return repositoyChar.create(content, t)
-           .then(createResp =>  user.addComic(createResp.id))
+           .then(createResp =>  user.addCharacter(createResp))
 };
 
 const likeComics = async(content, user, t) => {
@@ -79,10 +79,21 @@ const likeCharComic = async({type, apiId, name, thumb}, id) => {
     })
 }
 
+const content = async(userId) => {
+    return repositoy.findLikedByUserId(userId)
+    .then((res) => {
+        return res
+    })
+    .catch((err) => {
+        throw createError(err.status, err.message);
+    })
+};
+
 export default {
     createUser,
     updateUser,
     hasUserByEmail,
     me,
     likeCharComic,
+    content
 }

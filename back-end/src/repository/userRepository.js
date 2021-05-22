@@ -1,5 +1,7 @@
 import {User} from "../entitys/userEntity";
 import createError from "http-errors";
+import { Character } from "../entitys/characterEntity";
+import { Comic } from "../entitys/comicEntity";
 
 const createUser = async (user, t) => {
     return User.create(user, { transaction: t })
@@ -45,11 +47,39 @@ const addComic = ({ comicId, userId }) => {
     return User.addComic(userId, comicId)
 }
 
+const findLikedByUserId = (id) => {
+    const att = ["id", "apiId", "thumb", "name"]
+    return User.findOne({
+        attributes: [],
+        include: [
+            {
+                model: Character,
+                as: "characters",
+                attributes: att,
+                through: {
+                    attributes: ['charId']
+                }
+            },
+            {
+                model: Comic,
+                as: "comics",
+                attributes: att,
+                through: {
+                    attributes: ['comicId']
+                }
+            }
+
+        ],
+        where: { id }
+    })
+}
+
 export default {
     createUser,
     updateUser,
     countUser,
     profile,
     authenticate,
-    addComic
+    addComic,
+    findLikedByUserId
 }

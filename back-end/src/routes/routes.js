@@ -38,7 +38,8 @@ router.post('/user/like', security,(req, res, next) => (
   validator.validate(userValidation.userLikeValidator, req.body, res, next)
   ),
    userController.likeCharComic);
-// router.get('/like/byUser', security, userController.likeByUser);
+
+router.get('/user/like', security, userController.content);
 
 // Char
 router.get(
