@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Marvel integration api",
+  "main": "server.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon --exec sucrase-node src/index.js --trace-warnings --ignore test --unhandled-rejections=strict",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migration": "sequelize db:migrate && sequelize db:seed:all"
+  },
+  "author": "mattszcosta",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudnative/health": "^2.1.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.3",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "ramda": "^0.27.1",
+    "sequelize": "^6.6.2",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.18.1"
+  }
+}
