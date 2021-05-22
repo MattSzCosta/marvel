@@ -1,4 +1,4 @@
-const { TEXT, INTEGER, STRING } = require("sequelize");
+const { TEXT, INTEGER, STRING } = require('sequelize');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -11,7 +11,7 @@ module.exports = {
       apiId: {
         type: STRING(100),
         allowNull: false,
-        unique: true
+        unique: true,
       },
       thumb: {
         type: TEXT,
@@ -25,5 +25,5 @@ module.exports = {
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('characters');
-  }
+  },
 };

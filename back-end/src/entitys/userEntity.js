@@ -1,10 +1,10 @@
-import { sequelize } from "./index";
-import { INTEGER, STRING } from "sequelize";
-import { Comic } from "./comicEntity";
-import { Character } from "./characterEntity";
+import { sequelize } from './index';
+import { INTEGER, STRING } from 'sequelize';
+import { Comic } from './comicEntity';
+import { Character } from './characterEntity';
 
 const User = sequelize.define(
-  "users",
+  'users',
   {
     id: {
       autoIncrement: true,
@@ -20,7 +20,7 @@ const User = sequelize.define(
       allowNull: false,
     },
     password: {
-      type:STRING,
+      type: STRING,
       allowNull: false,
     },
     email: {
@@ -29,36 +29,35 @@ const User = sequelize.define(
     },
   },
   {
-    tableName: "users", 
+    tableName: 'users',
     timestamps: false,
     createdAt: false,
     updatedAt: false,
-  
   }
 );
 
 User.belongsToMany(Comic, {
-    through: "user_comics",
-    as: "comics",
-    foreignKey: "userId",
+  through: 'user_comics',
+  as: 'comics',
+  foreignKey: 'userId',
 });
 
 Comic.belongsToMany(User, {
-    through: "user_comics",
-    as: "users",
-    foreignKey: "comicId",
+  through: 'user_comics',
+  as: 'users',
+  foreignKey: 'comicId',
 });
 
 User.belongsToMany(Character, {
-  through: "user_characters",
-  as: "characters",
-  foreignKey: "userId",
+  through: 'user_characters',
+  as: 'characters',
+  foreignKey: 'userId',
 });
 
 Character.belongsToMany(User, {
-  through: "user_characters",
-  as: "users",
-  foreignKey: "charId",
+  through: 'user_characters',
+  as: 'users',
+  foreignKey: 'charId',
 });
 
 export { User };

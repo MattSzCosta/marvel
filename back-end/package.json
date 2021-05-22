@@ -7,7 +7,8 @@
     "start": "node dist/server.js",
     "dev": "nodemon --exec sucrase-node src/index.js --trace-warnings --ignore test --unhandled-rejections=strict",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "migration": "sequelize db:migrate && sequelize db:seed:all"
+    "migration": "sequelize db:migrate && sequelize db:seed:all",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
   },
   "author": "mattszcosta",
   "license": "ISC",
@@ -29,6 +30,12 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.0",
     "sequelize-cli": "^6.2.0",
     "sucrase": "^3.18.1"
   }

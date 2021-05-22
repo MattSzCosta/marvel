@@ -1,20 +1,20 @@
-import { sequelize } from "../models";
+import { sequelize } from '../models';
 import {
   HealthChecker,
   LivenessCheck,
   ReadinessCheck,
   State,
-} from "@cloudnative/health/src/healthcheck/HealthChecker";
+} from '@cloudnative/health/src/healthcheck/HealthChecker';
 
 const checker = new HealthChecker();
 
 checker.registerReadinessCheck(
-  new ReadinessCheck("mariadb", () => {
+  new ReadinessCheck('mariadb', () => {
     return sequelize.authenticate();
   })
 );
 
-checker.registerLivenessCheck(new LivenessCheck("health", () => Promise.resolve()));
+checker.registerLivenessCheck(new LivenessCheck('health', () => Promise.resolve()));
 
 const liveness = (req, res, next) =>
   checker

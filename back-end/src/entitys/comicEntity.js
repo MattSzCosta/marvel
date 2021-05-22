@@ -1,8 +1,8 @@
-import { sequelize } from "./index";
-import { INTEGER, STRING, TEXT } from "sequelize";
+import { sequelize } from './index';
+import { INTEGER, STRING, TEXT } from 'sequelize';
 
 const Comic = sequelize.define(
-  "comics",
+  'comics',
   {
     id: {
       autoIncrement: true,
@@ -23,7 +23,7 @@ const Comic = sequelize.define(
     },
   },
   {
-    tableName: "comics",
+    tableName: 'comics',
     timestamps: false,
     createdAt: false,
     updatedAt: false,

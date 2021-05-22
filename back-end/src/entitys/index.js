@@ -1,11 +1,11 @@
-import { Sequelize, Transaction } from "sequelize";
-import config from "../config/database";
+import { Sequelize, Transaction } from 'sequelize';
+import config from '../config/database';
 
 let sequelize;
 
 if (!sequelize) {
   sequelize = new Sequelize({
-    ...config
+    ...config,
   });
 }
 

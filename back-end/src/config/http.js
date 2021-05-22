@@ -5,10 +5,10 @@ const _instance = null;
 const getInstance = () => {
   if (_instance !== null) return _instance;
 
-  const env = process.env || {}
+  const env = process.env || {};
 
   const config = {
-    baseURL: env.MARVEL_URL_API || '/api'
+    baseURL: env.MARVEL_URL_API || '/api',
   };
 
   if (env.NODE_ENV !== 'development') {
