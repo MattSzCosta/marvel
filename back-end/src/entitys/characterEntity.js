@@ -1,8 +1,8 @@
 import { sequelize } from "./index";
 import { INTEGER, STRING, BLOB } from "sequelize";
 
-const Comic = sequelize.define(
-  "comics",
+const Character = sequelize.define(
+  "characters",
   {
     id: {
       autoIncrement: true,
@@ -12,6 +12,7 @@ const Comic = sequelize.define(
     apiId: {
       type: STRING(100),
       allowNull: false,
+      unique: true
     },
     thumb: {
       type: BLOB("medium"),
@@ -23,11 +24,11 @@ const Comic = sequelize.define(
     },
   },
   {
-    tableName: "comics",
+    tableName: "characters",
     timestamps: false,
     createdAt: false,
     updatedAt: false,
   }
 );
 
-export { Comic };
+export { Character };

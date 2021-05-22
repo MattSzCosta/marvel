@@ -1,6 +1,7 @@
 import { sequelize } from "./index";
 import { INTEGER, STRING } from "sequelize";
 import { Comic } from "./comicEntity";
+import { Character } from "./characterEntity";
 
 const User = sequelize.define(
   "users",
@@ -37,15 +38,27 @@ const User = sequelize.define(
 );
 
 User.belongsToMany(Comic, {
-    through: "user_comic",
+    through: "user_comics",
     as: "comics",
-    foreignKey: "user_id",
+    foreignKey: "userId",
 });
 
 Comic.belongsToMany(User, {
-    through: "user_comic",
+    through: "user_comics",
     as: "users",
-    foreignKey: "comic_id",
+    foreignKey: "comicId",
+});
+
+User.belongsToMany(Comic, {
+  through: "user_characters",
+  as: "characters",
+  foreignKey: "userId",
+});
+
+Character.belongsToMany(User, {
+  through: "user_characters",
+  as: "users",
+  foreignKey: "charId",
 });
 
 export { User };

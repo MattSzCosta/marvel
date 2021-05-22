@@ -2,7 +2,7 @@ const { BLOB, INTEGER, STRING } = require("sequelize");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('comics', {
+    await queryInterface.createTable('characters', {
       id: {
         autoIncrement: true,
         primaryKey: true,
@@ -24,6 +24,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('comics');
+    await queryInterface.dropTable('characters');
   }
 };
