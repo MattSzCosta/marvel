@@ -1,0 +1,34 @@
+{
+  "general": {
+    "no_data": "Resultado vazio!",
+    "soon": "Em breve",
+    "no_search_yet": "Você não fez nenhuma pesquisa ainda",
+    "currency_symbol": "R$",
+    "locale": "pt-br",
+    "pagination": {
+      "first": "Primeira página",
+      "previous": "Página anterior",
+      "page": "Página",
+      "next": "Próxima página",
+      "last": "Última página"
+    }
+  },
+  "login": {
+    "title": "Portal de Fornecedores",
+    "user": {
+      "name": "Usuário",
+      "required": "Usuário não informado"
+    },
+    "password": {
+      "name": "Senha",
+      "required": "Senha não informada"
+    },
+    "submit": "Entrar",
+    "forget_password": "Esqueceu a senha?",
+    "messages": {
+      "access_denied": "Usuário ou Senha inválidos",
+      "successfully_logged": "Usuário realizado com sucesso"
+    },
+    "remember_me": "Manter meu acesso conectado"
+  }
+}

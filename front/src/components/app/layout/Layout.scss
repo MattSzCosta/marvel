@@ -1,0 +1,78 @@
+.ceabs-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-content: stretch;
+
+  .ceabs-main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    .ceabs-content {
+      flex: 1;
+      background-color: #fff;
+      padding: 2rem;
+
+      .MuiContainer-root {
+        padding: 0;
+      }
+    }
+  }
+
+  .ceabs-header {
+    background-color: #fff;
+    color: #006fab;
+    box-shadow: none;
+
+    .MuiToolbar-root {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #c7c7c7;
+
+      .logo-container {
+        flex: 0.15;
+        .logo {
+          height: 30px;
+        }
+      }
+
+      .header-title {
+        flex: 8;
+        font-size: 28px;
+        font-family: FS Albert;
+      }
+
+      .profile {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 0.5;
+      }
+
+      .username-container {
+        align-self: center;
+        .username {
+          color: #006fab;
+          font-size: 15px;
+          padding: 0 0.8rem;
+        }
+      }
+
+      .icon-notification {
+        border-right: 1px solid #c7c7c7;
+      }
+    }
+  }
+}
+
+.traceable-table {
+  table-layout: fixed;
+}
+
+.remove-ppading {
+  padding: 0 !important;
+}
+
+.navigation-menu {
+  display: flex;
+}
