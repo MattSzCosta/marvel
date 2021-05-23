@@ -2,7 +2,7 @@ import {
   Box,
   Container,
   Grid,
-  LinearProgress,
+  CircularProgress,
   Toolbar,
   Typography
 } from '@material-ui/core'
@@ -10,7 +10,7 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import authAction from '~/actions/authAction'
 import Labels from '~/helpers/enums/Labels'
@@ -31,11 +31,11 @@ const AuthenticatedLayout = (props) => {
 
   return (
     <ThemeProvider theme={authenticatedTheme}>
-      <Box className="ceabs-layout">
+      <Box className="marvel-background">
         <Box className="ceabs-header">
           <Toolbar>
             <div className="logo-container">
-              <Link to="/">{/* <BlueLogoIcon /> */}</Link>
+              {/* <Link to="/"><BlueLogoIcon /></Link> */}
             </div>
             <Typography className="header-title" variant="h5" noWrap>
               {t(Labels.LOGIN_TITLE)}
@@ -51,7 +51,7 @@ const AuthenticatedLayout = (props) => {
             </Grid>
           </Toolbar>
           <Grid>
-            {Object.values(loading).some((x) => x) && <LinearProgress />}
+            {Object.values(loading).some((x) => x) && <CircularProgress />}
           </Grid>
         </Box>
         <Box className="ceabs-main">
@@ -71,8 +71,8 @@ const AnonymousLayout = (props) => {
 
   return (
     <ThemeProvider theme={anonymousTheme}>
-      {loading.header && <LinearProgress />}
-      {props.children}
+      {loading.header && <CircularProgress />}
+      <Box className="marvel-background">{props.children}</Box>
       <ToastContainer style={{ zIndex: 99999 }} />
     </ThemeProvider>
   )

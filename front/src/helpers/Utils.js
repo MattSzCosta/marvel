@@ -121,5 +121,6 @@ export default {
   isEmptyOrNullOrZero,
   showAllErrors,
   showSuccess,
-  showInfo
+  showInfo,
+  showError
 }

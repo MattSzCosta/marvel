@@ -5,6 +5,7 @@
     "no_search_yet": "Você não fez nenhuma pesquisa ainda",
     "currency_symbol": "R$",
     "locale": "pt-br",
+    "back": "voltar",
     "pagination": {
       "first": "Primeira página",
       "previous": "Página anterior",
@@ -14,21 +15,34 @@
     }
   },
   "login": {
-    "title": "Portal de Fornecedores",
-    "user": {
-      "name": "Usuário",
-      "required": "Usuário não informado"
+    "title": "Marvel Comics Store",
+    "email": {
+      "name": "Email",
+      "required_email_format": "Insira um e-mail válido",
+      "required": "Email não informado"
     },
     "password": {
       "name": "Senha",
       "required": "Senha não informada"
     },
+    "confirmPassword": {
+      "name": "Confirme a senha",
+      "required_same_validation": "Senhas devem ser iguais"
+    },
+    "firstName": {
+      "name":"Nome",
+      "required": "Nome não informado"
+    },
+    "lastName": {
+      "name": "Sobrenome",
+      "required":"Sobrenome não informado"
+    },
     "submit": "Entrar",
-    "forget_password": "Esqueceu a senha?",
+    "singup": "cadastre-se",
     "messages": {
       "access_denied": "Usuário ou Senha inválidos",
-      "successfully_logged": "Usuário realizado com sucesso"
-    },
-    "remember_me": "Manter meu acesso conectado"
+      "successfully_logged": "Ação realizada com sucesso",
+      "singup_failed": "Erro ao cadastrar usuário"
+    }
   }
 }

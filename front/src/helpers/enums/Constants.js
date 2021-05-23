@@ -4,6 +4,7 @@ export const UPDATE_LOGIN = 'UPDATE_LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const TOKEN = 'TOKEN'
 export const USER = 'USER'
+export const LOGIN = 'LOGIN'
 
 // Messages types
 export const DEFAULT = 'default'
@@ -36,5 +37,6 @@ export default {
   OPEN_CONFIRM_DIALOG,
   CLOSE_CONFIRM_DIALOG,
   OPEN_CUSTOM_DIALOG,
-  CLOSE_CUSTOM_DIALOG
+  CLOSE_CUSTOM_DIALOG,
+  LOGIN
 }

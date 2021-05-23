@@ -18,6 +18,7 @@ export const addInterceptors = (http) => {
           { toastId: 503 }
         )
       } else {
+        console.log(error.response.data)
         switch (error.request.status) {
           case 401:
             if (Utils.hasTokenValid()) {
@@ -37,6 +38,9 @@ export const addInterceptors = (http) => {
               type: Constants.ERROR,
               description: Labels.METHOD_NOT_ALLOWED
             })
+            break
+          case 400:
+            Utils.showError(error.response.data?.error)
             break
           default:
             break

@@ -21,11 +21,12 @@
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "prettier/prettier": [
-      "warn",
+       "warn",
       {
         "singleQuote": true,
         "semi": false,
-        "trailingComma": "none"
+        "trailingComma": "none",
+        "endOfLine": "auto"
       }
     ]
   }

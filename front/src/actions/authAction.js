@@ -12,18 +12,18 @@ const sendCredentials =
       .login(values)
       .then((response) => {
         if (response) {
-          Utils.setToken(response.data.accessToken)
-          callback()
-          const token = jwtDecode(response.data.accessToken)
+          Utils.setToken(response.data.access_token)
+          const token = jwtDecode(response.data.access_token)
+          console.log(token)
           dispatch({
             type: Constants.LOGIN,
             payload: {
               user: {
-                name: Utils.getName(token.name),
-                role: token.functionalities || null
+                name: token.firstName
               }
             }
           })
+          callback()
         }
       })
       .catch((error) => {
@@ -55,17 +55,35 @@ const getProfile = () => (dispatch) => {
       type: Constants.LOGIN,
       payload: {
         user: {
-          name: Utils.getName(tokenDecode.name),
-          role: tokenDecode.functionalities || null
+          name: tokenDecode.firstName
         }
       }
     })
   }
 }
 
+const register =
+  (values, callback = () => {}, LOADING_IDENTIFICATOR = 'header') =>
+  (dispatch) => {
+    dispatch(Utils.startLoading(LOADING_IDENTIFICATOR))
+
+    return authService
+      .register(values)
+      .then(() => {
+        callback()
+      })
+      .catch((error) => {
+        callback(error)
+      })
+      .finally(() => {
+        dispatch(Utils.endLoading(LOADING_IDENTIFICATOR))
+      })
+  }
+
 export default {
   sendCredentials,
   verifyCredentialsAuthentication,
   logout,
-  getProfile
+  getProfile,
+  register
 }

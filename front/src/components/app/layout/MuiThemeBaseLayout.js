@@ -12,7 +12,7 @@ export const authenticatedTheme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: ['Gotham', 'Gotham Rounded', 'FS Albert', 'sans-serif']
+    fontFamily: ['Coming Soon', 'cursive']
   },
   overrides: {
     MuiContainer: {
@@ -27,25 +27,25 @@ export const authenticatedTheme = createMuiTheme({
 export const anonymousTheme = createMuiTheme({
   palette: {
     primary: {
-      main: '#0075be',
-      contrastText: '#6AE5FF'
-    },
-    secondary: {
       main: '#fff',
       contrastText: '#fff'
+    },
+    secondary: {
+      main: 'rgb(100, 141, 174)',
+      contrastText: 'rgba(0, 0, 0, 0.87)'
     },
     error: {
       main: '#FF9216'
     }
   },
   typography: {
-    fontFamily: ['Gotham', 'Gotham Rounded', 'FS Albert', 'sans-serif']
+    fontFamily: ['Coming Soon', 'cursive']
   },
   overrides: {
     MuiLinearProgress: {
       root: {
         position: 'absolute',
-        zIndex: 10,
+        zIndex: 99999,
         top: 0,
         width: '100%'
       }

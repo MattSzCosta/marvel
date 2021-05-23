@@ -18,7 +18,7 @@ const getInstance = () => {
   }
 
   let newInstance = axios.create(config)
-
+  console.log(config)
   newInstance = addInterceptors(newInstance)
 
   return newInstance

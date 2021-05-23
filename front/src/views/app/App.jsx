@@ -39,7 +39,7 @@ const App = () => {
   return (
     <Suspense fallback="loading">
       <Helmet>
-        <title>{`Marvel Comics Store - v${version}`}</title>
+        <title>{`Marvel Comics - v${version}`}</title>
         <meta name="version" content={version || '1.0.0'} />
       </Helmet>
 

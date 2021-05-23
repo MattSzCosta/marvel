@@ -5,16 +5,11 @@ import PrivateRoute from '~/components/app/routers/PrivateRoute'
 import routes from '~/config/routes'
 import Utils from '~/helpers/Utils'
 
-export const Authenticated = (props) => {
+export const Authenticated = () => {
   const authenticatedRoutes = _.filter(
     routes,
     (r) => r.onlyAuthorized || r.onlyAuthorized === 'both'
   )
-
-  const isTemporaryPassword = (r) => {
-    if (props.isTemporaryPassword === 'true') return r.temporaryPasswordPage
-    return r.mainPage
-  }
 
   return (
     <Switch>
@@ -30,9 +25,7 @@ export const Authenticated = (props) => {
       <Route
         path="/login"
         exact
-        component={() => (
-          <Redirect to={routes.find((r) => isTemporaryPassword(r)).path} />
-        )}
+        component={() => <Redirect to={routes.find((r) => r.mainPage).path} />}
       />
       <Redirect to="/not-found" />
     </Switch>

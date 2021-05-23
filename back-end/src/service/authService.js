@@ -18,11 +18,19 @@ const options = {
 const login = async ({ email, password }) => {
   return repository
     .authenticate({ email, password })
+    .then(validateLogin)
     .then(generateToken)
     .then(getCredential)
     .catch((err) => {
       throw createError(err.status, err.message);
     });
+};
+
+const validateLogin = (res) => {
+  if (!res) {
+    throw createError(400, 'User not found');
+  }
+  return res;
 };
 
 const getCredential = curry((token) => {
