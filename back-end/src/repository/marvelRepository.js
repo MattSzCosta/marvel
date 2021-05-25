@@ -12,6 +12,7 @@ const getAllComics = async ({ search = '', limit = '', offset = '' }) => {
       ...DEFAULT,
       limit: limit,
       offset: offset,
+      orderBy: 'title',
     };
     if (search) params['titleStartsWith'] = search;
     return http
@@ -27,6 +28,7 @@ const getAllChar = async ({ search = '', limit = '', offset = '' }) => {
       ...DEFAULT,
       limit: limit,
       offset: offset,
+      orderBy: 'name',
     };
     if (search) params['nameStartsWith'] = search;
     return http

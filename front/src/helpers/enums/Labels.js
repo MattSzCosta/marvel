@@ -26,6 +26,11 @@ const LOGIN_FIRST_NAME_REQUIRED = 'login.firstName.required'
 const LOGIN_LAST_NAME = 'login.lastName.name'
 const LOGIN_LAST_NAME_REQUIRED = 'login.lastName.required'
 const LOGIN_SINGUP_FAILED = 'login.messages.singup_failed'
+
+//MENU
+const MENU_LOGOUT = 'menu.logout'
+const MENU_MY_ACCOUNT = 'menu.my_account'
+
 export default {
   NO_DATA,
   NO_SEARCH_YET,
@@ -50,5 +55,7 @@ export default {
   LOGIN_LAST_NAME,
   LOGIN_LAST_NAME_REQUIRED,
   LOGIN_SINGUP_FAILED,
-  BACK
+  BACK,
+  MENU_LOGOUT,
+  MENU_MY_ACCOUNT
 }

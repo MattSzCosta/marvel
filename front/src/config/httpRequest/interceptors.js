@@ -18,7 +18,6 @@ export const addInterceptors = (http) => {
           { toastId: 503 }
         )
       } else {
-        console.log(error.response.data)
         switch (error.request.status) {
           case 401:
             if (Utils.hasTokenValid()) {

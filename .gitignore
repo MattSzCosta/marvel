@@ -351,3 +351,5 @@ MigrationBackup/
 
 # volume docker
 .volume
+
+.vscode/*

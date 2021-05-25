@@ -31,12 +31,13 @@ const AuthenticatedLayout = (props) => {
 
   return (
     <ThemeProvider theme={authenticatedTheme}>
-      <Box className="marvel-background">
-        <Box className="ceabs-header">
+      <Box className="app-layout">
+        <Grid>
+          <Grid></Grid>
+        </Grid>
+        <Box className="app-header">
           <Toolbar>
-            <div className="logo-container">
-              {/* <Link to="/"><BlueLogoIcon /></Link> */}
-            </div>
+            <div className="logo-container"></div>
             <Typography className="header-title" variant="h5" noWrap>
               {t(Labels.LOGIN_TITLE)}
             </Typography>
@@ -54,8 +55,8 @@ const AuthenticatedLayout = (props) => {
             {Object.values(loading).some((x) => x) && <CircularProgress />}
           </Grid>
         </Box>
-        <Box className="ceabs-main">
-          <Box className={`ceabs-content`}>
+        <Box className="app-main">
+          <Box className={`app-content`}>
             <Container maxWidth={false}>{props?.children} </Container>
           </Box>
         </Box>

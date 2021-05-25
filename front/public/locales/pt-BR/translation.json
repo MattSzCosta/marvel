@@ -44,5 +44,9 @@
       "successfully_logged": "Ação realizada com sucesso",
       "singup_failed": "Erro ao cadastrar usuário"
     }
-  }
+  },
+  "menu": {
+		"logout": "Sair",
+		"my_account": "Minha conta"
+	}
 }

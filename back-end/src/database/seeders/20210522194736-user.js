@@ -7,8 +7,8 @@ module.exports = {
         id: '1',
         firstName: 'Mateus',
         lastName: 'Souza',
-        email: 'fake.email@gmail.com',
-        password: '123455',
+        email: 'email@gmail.com',
+        password: '123',
       },
     ]);
   },

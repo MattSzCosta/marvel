@@ -14,7 +14,6 @@ const sendCredentials =
         if (response) {
           Utils.setToken(response.data.access_token)
           const token = jwtDecode(response.data.access_token)
-          console.log(token)
           dispatch({
             type: Constants.LOGIN,
             payload: {

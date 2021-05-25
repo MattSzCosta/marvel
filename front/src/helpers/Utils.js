@@ -107,6 +107,14 @@ export const getDataToken = () => {
   return null
 }
 
+export const makeService = (service, id) => {
+  return (callback = () => {}) => {
+    service({ id })
+      .then(callback)
+      .catch((err) => callback(null, err))
+  }
+}
+
 export default {
   not,
   isEmpty,
@@ -122,5 +130,6 @@ export default {
   showAllErrors,
   showSuccess,
   showInfo,
-  showError
+  showError,
+  makeService
 }

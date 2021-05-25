@@ -1,10 +1,10 @@
 import React from 'react'
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
 import { useDispatch } from 'react-redux'
 import { MenuItem, Menu, IconButton } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { withRouter } from 'react-router-dom'
 import Labels from '~/helpers/enums/Labels'
-import { ArrowDownBlueIcon } from '~/components/common/icons/Icons'
 import authAction from '~/actions/authAction'
 
 const DropdownProfile = (props) => {
@@ -24,7 +24,7 @@ const DropdownProfile = (props) => {
   return (
     <>
       <IconButton id="dropdown" onClick={handleClick}>
-        <ArrowDownBlueIcon />
+        <ArrowDownwardIcon />
       </IconButton>
       <Menu
         id="long-menu"
