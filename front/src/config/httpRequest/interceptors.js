@@ -46,7 +46,10 @@ export const addInterceptors = (http) => {
         }
 
         if (error.request.status >= 500) {
-          Utils.showError(Labels.INTERNAL_SERVER_ERROR)
+          Utils.showTranslatedToast({
+            type: Constants.ERROR,
+            description: Labels.INTERNAL_SERVER_ERROR
+          })
         }
       }
       return Promise.reject(error)

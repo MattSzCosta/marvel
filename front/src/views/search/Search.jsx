@@ -23,8 +23,8 @@ const Search = () => {
 
   const debouncedSave = debounce((nextValue) => setInput(nextValue), 1200)
 
-  const handleChangeInput = (_, newValue) => {
-    debouncedSave(newValue)
+  const handleChangeInput = (event) => {
+    debouncedSave(event.target.value)
   }
 
   console.log(inputValue)
@@ -41,7 +41,7 @@ const Search = () => {
           justifyContent: 'center'
         }}
       >
-        <TextField id="search" handleChange={handleChangeInput} />
+        <TextField id="search" onBlur={handleChangeInput} />
       </Box>
 
       <Box style={{ height: '100%' }}>

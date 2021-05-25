@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core'
-import { Card } from 'material-ui'
+import { Card, IconButton } from 'material-ui'
 import { MuiThemeProvider } from 'material-ui/styles'
 import React from 'react'
-// import StarIcon from '@material-ui/icons/Star'
-// import StarOutlineIcon from '@material-ui/icons/StarOutline'
+import StarIcon from '@material-ui/icons/Star'
+import StarOutlineIcon from '@material-ui/icons/StarOutline'
 
 const useStyle = makeStyles((theme) => ({
   img: {
@@ -29,24 +29,41 @@ const useStyle = makeStyles((theme) => ({
     display: 'flex',
     textAlign: 'end',
     justifyContent: 'center'
+  },
+  icon: {
+    color: '#ffd700',
+    '&:hover': {
+      transform: 'scale(1.1)'
+    }
   }
 }))
 
-const ContentCard = ({ title, image, description, id, liked }) => {
-  console.log(title, description, liked)
+const ContentCard = ({ name, thumb, liked, serviceLike, apiId }) => {
   const classes = useStyle()
+
+  const handleLike = (e) => {
+    e.stopPropagation()
+    serviceLike({ name, apiId, thumb })
+  }
   return (
     <MuiThemeProvider>
-      <Card key={id} className={classes.card}>
+      <Card className={classes.card}>
         <Grid container direction="row" spacing={1} justify="center">
           <Grid item md={5} xs={8}>
-            <img src={image} className={classes.img} />
+            <img src={thumb} className={classes.img} />
           </Grid>
           <Grid item md={5} xs={4} className={classes.boxText}>
             <Box>
               <Typography variant="h6" gutterBottom>
-                {title}{' '}
+                {name}{' '}
               </Typography>
+              <IconButton onClick={handleLike}>
+                {liked ? (
+                  <StarIcon className={classes.icon} />
+                ) : (
+                  <StarOutlineIcon className={classes.icon} />
+                )}
+              </IconButton>
             </Box>
           </Grid>
         </Grid>

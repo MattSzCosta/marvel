@@ -36,4 +36,19 @@ export const getChars = (params) => {
   })
 }
 
-export default { getComics, getComicDetail, getCharDetail, getChars }
+export const setLikeContent = (params) => {
+  return new Promise((resolve, reject) => {
+    http
+      .post(`/user/like`, params)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err))
+  })
+}
+
+export default {
+  getComics,
+  getComicDetail,
+  getCharDetail,
+  getChars,
+  setLikeContent
+}

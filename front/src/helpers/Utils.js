@@ -47,24 +47,27 @@ export const endLoading = (identifier) => ({
   loading: { [identifier]: false }
 })
 
+const showToast = (description, type, ...props) => {
+  toast(description, {
+    type: type,
+    position: toast.POSITION.TOP_CENTER,
+    ...props
+  })
+}
+
 export const showTranslatedToast = ({ description, type }, props) => {
   if (!description) return
   try {
     const Translated = i18next.t(description)
     description = Translated
   } finally {
-    toast(description, {
-      type: type,
-      position: toast.POSITION.TOP_CENTER,
-      ...props
-    })
+    showToast(description, type, props)
   }
 }
 
 export const showError = debounce((message) => {
-  showTranslatedToast({
-    type: Constants.ERROR,
-    description: message
+  toast(message, {
+    type: Constants.ERROR
   })
 }, 1000)
 
