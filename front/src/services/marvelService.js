@@ -45,10 +45,20 @@ export const setLikeContent = (params) => {
   })
 }
 
+export const getAllLikedByUser = () => {
+  return new Promise((resolve, reject) => {
+    http
+      .get(`/user/like`)
+      .then((res) => resolve(res))
+      .catch((err) => reject(err))
+  })
+}
+
 export default {
   getComics,
   getComicDetail,
   getCharDetail,
   getChars,
-  setLikeContent
+  setLikeContent,
+  getAllLikedByUser
 }

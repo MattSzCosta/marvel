@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import { useDispatch } from 'react-redux'
 import { MenuItem, Menu, IconButton } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
@@ -24,7 +24,7 @@ const DropdownProfile = (props) => {
   return (
     <>
       <IconButton id="dropdown" onClick={handleClick}>
-        <ArrowDownwardIcon />
+        <AccountCircleIcon />
       </IconButton>
       <Menu
         id="long-menu"
@@ -37,7 +37,7 @@ const DropdownProfile = (props) => {
           id="my-account"
           title={t(Labels.MENU_MY_ACCOUNT)}
           onClick={() => {
-            props.history.push('/minha-conta')
+            props.history.push('/profile')
           }}
         >
           {t(Labels.MENU_MY_ACCOUNT)}

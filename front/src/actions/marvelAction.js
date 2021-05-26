@@ -1,20 +1,19 @@
+import Constants from '~/helpers/enums/Constants'
 import Utils from '~/helpers/Utils'
 import marvelService from '~/services/marvelService'
 
-const getAllComics =
-  (
-    { seach = '', limit = 12, offer = 0 },
-    callBack = () => {},
-    LOADING_IDENTIFICATOR = 'all'
-  ) =>
+const getAllLikedContent =
+  (LOADING_IDENTIFICATOR = 'all') =>
   (dispatch) => {
     dispatch(Utils.startLoading(LOADING_IDENTIFICATOR))
 
     return marvelService
-      .getComics({ seach, limit, offer })
-      .then((res) => callBack({ comics: res.data }))
-      .catch((err) => callBack({ erro: err }))
+      .getAllLikedByUser()
+      .then((res) => {
+        dispatch({ type: Constants.GET_FAV, payload: res.data })
+      })
+      .catch((err) => Utils.showError(err.reponse?.error))
       .finally(() => dispatch(Utils.endLoading(LOADING_IDENTIFICATOR)))
   }
 
-export default { getAllComics }
+export default { getAllLikedContent }

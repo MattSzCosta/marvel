@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import authAction from '~/actions/authAction'
+import marvelAction from '~/actions/marvelAction'
 import Labels from '~/helpers/enums/Labels'
 import DropdownProfile from './DropdownProfile'
 import './Layout.scss'
@@ -28,6 +29,10 @@ const AuthenticatedLayout = (props) => {
   useEffect(() => {
     if (!user) dispatch(authAction.getProfile())
   }, [dispatch, user])
+
+  useEffect(() => {
+    dispatch(marvelAction.getAllLikedContent())
+  }, [dispatch, marvelAction])
 
   return (
     <ThemeProvider theme={authenticatedTheme}>
@@ -45,7 +50,7 @@ const AuthenticatedLayout = (props) => {
             <Grid className="profile">
               <Grid item xs={12} md={12} className="username-container">
                 <Typography variant="body2" className="username">
-                  {user && user.name}
+                  olá, {user && user.name}
                   <DropdownProfile />
                 </Typography>
               </Grid>

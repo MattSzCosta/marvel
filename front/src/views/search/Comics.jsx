@@ -3,12 +3,13 @@ import marvelService from '~/services/marvelService'
 import ScrollContent from '~/components/common/ScrollContent/ScrollContent'
 
 const Comics = (props) => {
-  const { search = '' } = props
+  const { search = '', arrLiked } = props
 
   return (
     <ScrollContent
       style={{ height: '100%' }}
       type={'comics'}
+      arrLiked={arrLiked}
       service={marvelService.getComics}
       serviceDetail={marvelService.getComicDetail}
       search={search}
