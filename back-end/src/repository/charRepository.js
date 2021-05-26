@@ -1,8 +1,8 @@
 import { Character } from '../entitys/characterEntity';
 import createError from 'http-errors';
 
-const create = async (character, t) => {
-  return Character.create(character, { transaction: t })
+const create = async (character) => {
+  return Character.create(character)
     .then((res) => {
       return res;
     })

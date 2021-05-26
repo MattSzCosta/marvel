@@ -3,6 +3,8 @@ import repositoy from '../repository/userRepository';
 import repositoyChar from '../repository/charRepository';
 import repositoyComic from '../repository/comicRepository';
 import { executeTransaction } from '../entitys';
+import userCharRepository from '../repository/userCharRepository';
+import userComicRepository from '../repository/userComicRepository';
 
 const createUser = async (user) => {
   return executeTransaction((t) =>
@@ -52,33 +54,48 @@ const me = async (id) => {
     });
 };
 
-const likeChar = async (content, user, t) => {
-  const res = await repositoyChar.findOne(content);
+const likeChar = async (char, user) => {
+  const res = await repositoyChar.findOne(char);
   if (res) {
     return user.addCharacter(res);
   }
-
-  return repositoyChar.create(content, t).then((createResp) => user.addCharacter(createResp));
+  return repositoyChar.create(char).then((createResp) => user.addCharacter(createResp));
 };
 
-const likeComics = async (content, user, t) => {
-  const res = await repositoyComic.findOne(content);
+const likeComics = async (comic, user) => {
+  const res = await repositoyComic.findOne(comic);
   if (res) {
     return user.addComic(res);
   }
-  return repositoyComic.create(content, t).then((createResp) => user.addComic(createResp));
+  return repositoyComic.create(comic).then((createResp) => user.addComic(createResp));
+};
+
+const validateChar = async (char, user) => {
+  const userChar = await userCharRepository.findOne({ charId: char.apiId, userId: user.id });
+  if (userChar?.id) {
+    return userCharRepository.deleteById(userChar.id);
+  } else {
+    return likeChar(char, user);
+  }
+};
+
+const validateComic = async (comic, user) => {
+  const userComic = await userComicRepository.findOne({ comicId: comic.apiId, userId: user.id });
+  if (userComic?.id) {
+    return userComicRepository.deleteById(userComic.id);
+  } else {
+    return likeComics(comic, user);
+  }
 };
 
 const likeCharComic = async ({ type, apiId, name, thumb }, id) => {
   const user = await repositoy.profile({ id });
-  return executeTransaction((t) => {
-    const content = { apiId, name, thumb };
-    if (type === 'characters') {
-      return likeChar(content, user, t);
-    } else if (type === 'comics') {
-      return likeComics(content, user, t);
-    }
-  });
+  const data = { apiId, name, thumb };
+  if (type === 'characters') {
+    return validateChar(data, user);
+  } else if (type === 'comics') {
+    return validateComic(data, user);
+  }
 };
 
 const content = async (userId) => {

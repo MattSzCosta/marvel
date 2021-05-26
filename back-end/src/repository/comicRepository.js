@@ -1,8 +1,8 @@
 import { Comic } from '../entitys/comicEntity';
 import createError from 'http-errors';
 
-const create = async (comic, t) =>
-  Comic.create(comic, { transaction: t })
+const create = async (comic) =>
+  Comic.create(comic)
     .then((res) => res)
     .catch((err) => {
       throw createError(500, err);
