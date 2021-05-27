@@ -2,6 +2,7 @@ import authService from '~/services/authService'
 import Constants from '~/helpers/enums/Constants'
 import Utils from '~/helpers/Utils'
 import jwtDecode from 'jwt-decode'
+import userAction from './userAction'
 
 const sendCredentials =
   (values, callback = () => {}, LOADING_IDENTIFICATOR = 'header') =>
@@ -18,7 +19,7 @@ const sendCredentials =
             type: Constants.LOGIN,
             payload: {
               user: {
-                name: token.firstName
+                firstName: token.firstName
               }
             }
           })
@@ -54,10 +55,11 @@ const getProfile = () => (dispatch) => {
       type: Constants.LOGIN,
       payload: {
         user: {
-          name: tokenDecode.firstName
+          firstName: tokenDecode.firstName
         }
       }
     })
+    dispatch(userAction.getUser())
   }
 }
 

@@ -19,6 +19,11 @@ function authReducer(state = initialState, action = null) {
         isAuthenticated: false,
         user: null
       }
+    case Constants.GET_USER:
+      return {
+        ...state,
+        user: action.payload
+      }
     default:
       return state
   }

@@ -20,12 +20,13 @@ const FavContent = (props) => {
 
   const setDefaultValue = useCallback(
     (values, inputSearch) => {
-      console.log('setDefaultValue')
+      console.log('setDefaultValue', inputSearch)
       let filter = []
       if (inputSearch) {
         filter = values.filter((val) => {
-          console.log(val)
-          val && val?.name.toLowerCase().includes(inputSearch.toLowerCase())
+          return (
+            val && val?.name.toLowerCase().includes(inputSearch.toLowerCase())
+          )
         })
       } else {
         filter = values
@@ -61,10 +62,10 @@ const FavContent = (props) => {
           md={4}
           xs={12}
           key={uuid()}
-          onClick={() => setHistory(val.id)}
+          onClick={() => setHistory(val.apiId)}
         >
           <ContentCard
-            apiId={val.id}
+            apiId={val.apiId}
             liked={true}
             name={val.name}
             thumb={`${val.thumb}`}

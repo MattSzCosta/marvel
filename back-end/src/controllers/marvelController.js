@@ -33,6 +33,8 @@ const getAllChar = async (req, res, next) => {
 const getCharById = async (req, res, next) => {
   try {
     const { id } = req.query;
+    console.log(id);
+    console.log('============');
     const response = await marvelService.getCharById({ id });
     res.status(200).json(response.data);
   } catch (error) {

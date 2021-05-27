@@ -70,6 +70,7 @@ const ScrollContent = (props) => {
     arrLiked.find((element) => element?.apiId.toString() === id.toString())
   return (
     <InfiniteScroll
+      style={{ overflow: 'hidden' }}
       scrollThreshold={0.5}
       dataLength={comics.length}
       next={() => getComics(search, offset)}

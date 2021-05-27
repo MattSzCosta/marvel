@@ -15,6 +15,7 @@ export const AntTabs = withStyles({
 export const AntTab = withStyles((theme) => ({
   root: {
     textTransform: 'none',
+    color: '#fff',
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),

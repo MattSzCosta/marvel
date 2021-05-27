@@ -1,11 +1,12 @@
 import { Box, Container, Grid, makeStyles } from '@material-ui/core'
 import { Skeleton } from '@material-ui/lab'
-import { Card, IconButton } from 'material-ui'
+import { Card } from 'material-ui'
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router'
 import Utils from '~/helpers/Utils'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import ArrowBack from '~/components/common/ArrowBackHome/ArrowBack'
+// import ScrollContent from '~/components/common/ScrollContent/ScrollContent'
 
 const useStyle = makeStyles((theme) => ({
   img: {
@@ -17,6 +18,7 @@ const useStyle = makeStyles((theme) => ({
   content: {
     width: '100%',
     padding: `${theme.spacing(6)} 0`,
+    color: '#fff',
     display: 'flex',
     flexDirection: 'column',
     position: 'sticky',
@@ -24,6 +26,7 @@ const useStyle = makeStyles((theme) => ({
     zIndex: 100
   },
   card: {
+    backgroundColor: '#424242!important',
     padding: theme.spacing(1)
   }
 }))
@@ -49,9 +52,7 @@ const ContentDetail = (props) => {
   return (
     <Container>
       <MuiThemeProvider>
-        <IconButton onClick={() => props.history.push('/')}>
-          <ArrowBackIcon />
-        </IconButton>
+        <ArrowBack />
         <Card className={classes.card} raised>
           <Grid container spacing={5} justify="center">
             <Grid item xs={12} sm={8}>
@@ -81,6 +82,7 @@ const ContentDetail = (props) => {
             </Grid>
           </Grid>
         </Card>
+        <Box>{/* <ScrollContent /> */}</Box>
       </MuiThemeProvider>
     </Container>
   )

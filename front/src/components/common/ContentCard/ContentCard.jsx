@@ -19,6 +19,7 @@ const useStyle = makeStyles((theme) => ({
     margin: theme.spacing(2),
     width: theme.spacing(49),
     height: theme.spacing(25),
+    backgroundColor: '#424242!important',
     '&:hover': {
       boxShadow:
         '0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%)!important'
@@ -35,6 +36,9 @@ const useStyle = makeStyles((theme) => ({
     '&:hover': {
       transform: 'scale(1.1)'
     }
+  },
+  font: {
+    color: '#fff'
   }
 }))
 
@@ -54,7 +58,7 @@ const ContentCard = ({ name, thumb, liked, serviceLike, apiId }) => {
           </Grid>
           <Grid item md={5} xs={4} className={classes.boxText}>
             <Box>
-              <Typography variant="h6" gutterBottom>
+              <Typography variant="h6" gutterBottom className={classes.font}>
                 {name}{' '}
               </Typography>
               <IconButton onClick={handleLike}>

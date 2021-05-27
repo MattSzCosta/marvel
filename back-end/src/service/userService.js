@@ -19,10 +19,10 @@ const createUser = async (user) => {
   );
 };
 
-const updateUser = async (user) => {
+const updateUser = async (user, userId) => {
   return executeTransaction((t) =>
     repositoy
-      .updateUser(user, t)
+      .updateUser(user, userId, t)
       .then((res) => {
         return res;
       })
@@ -47,7 +47,7 @@ const me = async (id) => {
   return repositoy
     .profile({ id })
     .then((res) => {
-      return res > 0;
+      return res;
     })
     .catch((err) => {
       throw createError(err.status, err.message);
@@ -89,11 +89,12 @@ const validateComic = async (comic, user) => {
 };
 
 const likeCharComic = async ({ type, apiId, name, thumb }, id) => {
-  const user = await repositoy.profile({ id });
+  const user = await repositoy.profileFull({ id });
   const data = { apiId, name, thumb };
   if (type === 'characters') {
     return validateChar(data, user);
   } else if (type === 'comics') {
+    console.log('Likechar');
     return validateComic(data, user);
   }
 };

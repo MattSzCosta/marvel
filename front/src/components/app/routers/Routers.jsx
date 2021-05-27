@@ -23,7 +23,7 @@ export const Authenticated = () => {
         />
       ))}
       <Route
-        path="/login"
+        path="/"
         exact
         component={() => <Redirect to={routes.find((r) => r.mainPage).path} />}
       />
@@ -47,7 +47,7 @@ export const Anonymous = () => {
           component={route.view}
         />
       ))}
-      <Redirect to="/login" />
+      <Redirect to="/" />
     </Switch>
   )
 }

@@ -27,7 +27,7 @@ router.put(
   userController.updateUser
 );
 
-router.get('/user/me', userController.me);
+router.get('/user/me', security, userController.me);
 
 // Auth routes
 router.post(

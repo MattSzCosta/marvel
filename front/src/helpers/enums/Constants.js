@@ -25,6 +25,10 @@ export const CLOSE_CUSTOM_DIALOG = 'CLOSE_CUSTOM_DIALOG'
 //Marvel
 export const GET_FAV = 'GET_FAV'
 
+//USER
+export const GET_USER = 'GET_USER'
+export const UPDATE_USER = 'UPDATE_USER'
+
 export default {
   UPDATE_LOADING,
   UPDATE_LOGIN,
@@ -42,5 +46,7 @@ export default {
   OPEN_CUSTOM_DIALOG,
   CLOSE_CUSTOM_DIALOG,
   LOGIN,
-  GET_FAV
+  GET_FAV,
+  GET_USER,
+  UPDATE_USER
 }

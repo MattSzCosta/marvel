@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core'
+import { Box, makeStyles } from '@material-ui/core'
 import { TextField } from 'material-ui'
 import React, { useState } from 'react'
 import TabPanel from '~/components/common/Tabs/TabPanel'
@@ -11,6 +11,16 @@ import FavContent from './FavContent'
 import { useSelector } from 'react-redux'
 import marvelService from '~/services/marvelService'
 
+const style = makeStyles(() => ({
+  inputContent: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  contentTabs: {
+    height: '100%'
+  }
+}))
+
 const ENUM = {
   COMICS: 0,
   CHARS: 1,
@@ -21,6 +31,7 @@ const ENUM = {
 const Search = () => {
   const [value, setChange] = useState(ENUM.COMICS)
 
+  const classes = style()
   const { favComics, favChars } = useSelector((state) => state.marvel)
   const [inputValue, setInput] = useState('')
   const handleChange = (_, val) => {
@@ -39,19 +50,18 @@ const Search = () => {
       <AntTabs value={value} onChange={handleChange} centered>
         <AntTab valeu={ENUM.COMICS} label="Comics" />
         <AntTab valeu={ENUM.CHARS} label="Personagens" />
-        <AntTab valeu={ENUM.FAV_COMICS} label="Fav. Char" />
-        <AntTab valeu={ENUM.FAV_CHAR} label="Fav. Pers" />
+        <AntTab valeu={ENUM.FAV_COMICS} label="Fav. Comic" />
+        <AntTab valeu={ENUM.FAV_CHAR} label="Fav. Chars" />
       </AntTabs>
-      <Box
-        style={{
-          display: 'flex',
-          justifyContent: 'center'
-        }}
-      >
-        <TextField id="search" onBlur={handleChangeInput} />
+      <Box className={classes.inputContent}>
+        <TextField
+          id="search"
+          placeholder="Search"
+          onBlur={handleChangeInput}
+        />
       </Box>
 
-      <Box style={{ height: '100%' }}>
+      <Box className={classes.contentTabs}>
         <TabPanel value={value} index={ENUM.COMICS}>
           <Comics search={inputValue} arrLiked={favComics} />
         </TabPanel>

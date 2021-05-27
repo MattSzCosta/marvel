@@ -20,7 +20,7 @@ const updateUser = async (req, res, next) => {
     if (!hasEmail) {
       throw createError(400, 'User not found');
     }
-    userService.updateUser(req.body).then(() => res.status(204).json());
+    userService.updateUser(req.body, req.user.sub).then(() => res.status(204).json());
   } catch (error) {
     next(error);
   }
@@ -28,7 +28,7 @@ const updateUser = async (req, res, next) => {
 
 const me = async (req, res, next) => {
   try {
-    const user = await userService.me(req.userId);
+    const user = await userService.me(req.user.sub);
     return res.status(200).json({
       user,
     });

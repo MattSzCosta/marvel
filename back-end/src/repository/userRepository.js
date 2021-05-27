@@ -13,8 +13,8 @@ const createUser = async (user, t) => {
     });
 };
 
-const updateUser = async (user, t) => {
-  const { password, firstName, lastName, email, id } = user;
+const updateUser = async (user, id, t) => {
+  const { password, firstName, lastName, email } = user;
   return User.update(
     { password, firstName, lastName, email },
     { where: { id } },
@@ -33,6 +33,10 @@ const countUser = (params) => {
 };
 
 const profile = ({ id }) => {
+  return User.findOne({ attributes: ['firstName', 'lastName', 'email'], where: { id } });
+};
+
+const profileFull = ({ id }) => {
   return User.findOne({ where: { id } });
 };
 
@@ -82,4 +86,5 @@ export default {
   authenticate,
   addComic,
   findLikedByUserId,
+  profileFull,
 };
