@@ -4,6 +4,7 @@
   "description": "Marvel integration api",
   "main": "server.js",
   "scripts": {
+    "prestart": "npm build",
     "start": "node dist/server.js",
     "dev": "nodemon --exec sucrase-node src/index.js --trace-warnings --ignore test --unhandled-rejections=strict",
     "test": "echo \"Error: no test specified\" && exit 1",

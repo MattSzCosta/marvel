@@ -6,6 +6,7 @@ import { withRouter } from 'react-router'
 import Utils from '~/helpers/Utils'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import ArrowBack from '~/components/common/ArrowBackHome/ArrowBack'
+// import Carousel from 'react-material-ui-carousel'
 // import ScrollContent from '~/components/common/ScrollContent/ScrollContent'
 
 const useStyle = makeStyles((theme) => ({
@@ -82,7 +83,11 @@ const ContentDetail = (props) => {
             </Grid>
           </Grid>
         </Card>
-        <Box>{/* <ScrollContent /> */}</Box>
+        <Box>
+          {/* <Carousel>
+
+          </Carousel> */}
+        </Box>
       </MuiThemeProvider>
     </Container>
   )

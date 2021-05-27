@@ -353,3 +353,5 @@ MigrationBackup/
 .volume
 
 .vscode/*
+
+.env
